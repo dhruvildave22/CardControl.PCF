@@ -2,6 +2,11 @@
   "name": "pcf-project",
   "version": "1.0.0",
   "description": "Project containing your PowerApps Component Framework (PCF) control.",
+  "proxy": {
+    "/api/*": {
+      "target": "https://dt-video-index-uspklrodz4yzi.azurewebsites.net"
+    }
+  },
   "scripts": {
     "build": "pcf-scripts build",
     "clean": "pcf-scripts clean",
@@ -14,10 +19,14 @@
     "@types/powerapps-component-framework": "^1.2.0",
     "@uifabric/react-cards": "^0.110.0",
     "antd": "^4.16.12",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.1.0",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "react-player": "^2.9.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.172",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
     "@typescript-eslint/parser": "^4.20.0",
     "pcf-scripts": "^1",

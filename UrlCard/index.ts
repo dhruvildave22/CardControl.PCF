@@ -1,10 +1,12 @@
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { CardHorizontalExample, ICardProps } from './extensions/Card';
+import { ICardProps } from './extensions/Card';
+import CardHorizontalExample from './extensions/Card';
 import { Config } from "./extensions/config";
 
 const config: Config = require('../maverickconfig.json');
+
 
 export class UrlCard implements ComponentFramework.StandardControl<IInputs, IOutputs> {
 
@@ -42,6 +44,7 @@ export class UrlCard implements ComponentFramework.StandardControl<IInputs, IOut
 			this.apiKey = context.parameters.LinkPreviewApiKey.raw || config.defaultApiKey;
 			this.props.isRequired = context.parameters.Url.attributes?.RequiredLevel === 1 ? true : false;
 			this.props.errorMessage = context.parameters.Url.errorMessage;
+			this.props.test = "testing";
 
 			this.fetchUrlMetadata(urlToPreview, this.apiKey);
 		}
@@ -99,17 +102,19 @@ export class UrlCard implements ComponentFramework.StandardControl<IInputs, IOut
 			// body: raw,
 			// redirect: 'follow'
 		};
-		fetch(`https://demo-qr-code-cognitive-search.search.windows.net/indexes/my-target-index/docs?api-version=2020-06-30-Preview&search=${urlToPreview== "" ? '*' : urlToPreview}`, requestOptions)
-			.then(response => response.json())
-			.then(data => {
-				this.props.searchData = data.value;
-				this.currentUrl = "urlToPreview";
-				this.renderReactDOM(this);
-			})
-			.catch(error => console.log('error', error));
+		this.renderReactDOM(this);
+		// fetch(`https://demo-qr-code-cognitive-search.search.windows.net/indexes/my-target-index/docs?api-version=2020-06-30-Preview&search=${urlToPreview== "" ? '*' : urlToPreview}`, requestOptions)
+		// 	.then(response => response.json())
+		// 	.then(data => {
+		// 		this.props.searchData = data.value;
+		// 		this.currentUrl = "urlToPreview";
+		// 		this.renderReactDOM(this);
+		// 	})
+		// 	.catch(error => console.log('error', error));
 	}
 
 	private renderReactDOM(parent: any): void {
+
 		ReactDOM.render(
 			
 			// Create the React component

@@ -10,6 +10,8 @@
     <resources>
       <code path="index.ts" order="1" />
       <css path="css/Card.css" order="1" />
+      <css path="../node_modules/antd/dist/antd.css" order="1" />
+      <css path="../node_modules/bootstrap/dist/css/bootstrap.css" order="1" />
       <!-- UNCOMMENT TO ADD MORE RESOURCES
       <css path="css/UrlCard.css" order="1" />
       <resx path="strings/UrlCard.1033.resx" version="1.0.0" />
