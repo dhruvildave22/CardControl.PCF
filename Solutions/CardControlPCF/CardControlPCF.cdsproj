@@ -8,7 +8,7 @@
   <Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.props" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.props')" />
 
   <PropertyGroup>
-    <ProjectGuid>0fc5ed82-49a2-4d71-bb61-61d5deb06266</ProjectGuid>
+    <ProjectGuid>f35d8b45-6e0e-4a41-bb0a-b2846acbe8bc</ProjectGuid>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <!--Remove TargetFramework when this is available in 16.1-->
     <TargetFramework>net462</TargetFramework>
@@ -37,6 +37,9 @@
   
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)\**" Exclude="@(ExcludeDirectories)" />
+    <Content Include="$(SolutionPackageZipFilePath)">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   
   <ItemGroup>
